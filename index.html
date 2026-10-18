@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computer Networking Basics</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315202b'/%3E%3Cg stroke='%23e9822b' stroke-width='4'%3E%3Cline x1='32' y1='32' x2='14' y2='16'/%3E%3Cline x1='32' y1='32' x2='50' y2='16'/%3E%3Cline x1='32' y1='32' x2='32' y2='52'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%232563c9'/%3E%3Cg fill='%232f9e6e'%3E%3Ccircle cx='14' cy='16' r='6'/%3E%3Ccircle cx='50' cy='16' r='6'/%3E%3Ccircle cx='32' cy='52' r='6'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" aria-label="Main">
+  <a class="logo" href="#top">Networking Basics</a>
+  <ul>
+    <li><a href="#what">What is a network</a></li>
+    <li><a href="#types">Types</a></li>
+    <li><a href="#devices">Devices</a></li>
+    <li><a href="#layers">OSI model</a></li>
+    <li><a href="#fix">Troubleshooting</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+</nav>
+
+<header id="top">
+  <h1>Computer Networking Basics</h1>
+  <p>A short beginner guide to how computers connect and share information, and how to fix common connection problems.</p>
+  <p><a class="button" href="#what">Start reading</a> <a class="button alt" href="#quiz">Take the quiz</a></p>
+</header>
+
+<main>
+
+<section id="what">
+  <h2>What is a network?</h2>
+  <p>A <strong>network</strong> is two or more devices connected so they can share data and resources. At home, your phone, laptop and printer may all share one internet connection. In an office, hundreds of computers may share files, printers and email.</p>
+  <p>Networks give us three main benefits:</p>
+  <ul>
+    <li>Sharing files and information</li>
+    <li>Sharing hardware such as printers and internet access</li>
+    <li>Communicating through email, calls and messaging</li>
+  </ul>
+  <blockquote>Every device on a network needs an address so that data knows where to go.</blockquote>
+</section>
+
+<section id="types">
+  <h2>Types of networks</h2>
+  <p>Networks are grouped by the area they cover.</p>
+  <div class="scroll">
+    <table>
+      <caption>Common network types</caption>
+      <thead>
+        <tr><th>Type</th><th>Full name</th><th>Area covered</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>PAN</td><td>Personal Area Network</td><td>Around one person</td><td>Phone connected to earphones by Bluetooth</td></tr>
+        <tr><td>LAN</td><td>Local Area Network</td><td>One building or office</td><td>An office or school computer lab</td></tr>
+        <tr><td>MAN</td><td>Metropolitan Area Network</td><td>A town or city</td><td>A county government linking its offices</td></tr>
+        <tr><td>WAN</td><td>Wide Area Network</td><td>Countries or the world</td><td>The internet</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="devices">
+  <h2>Network devices</h2>
+  <p>The picture below shows a <em>star topology</em>, the most common layout in offices. Every computer connects to one central switch.</p>
+  <figure>
+    <img width="320" height="220" alt="Four computers each connected by a line to a central switch"
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='220' viewBox='0 0 320 220'%3E%3Crect width='320' height='220' fill='%23f1f4f8'/%3E%3Cg stroke='%2315202b' stroke-width='3'%3E%3Cline x1='160' y1='110' x2='50' y2='40'/%3E%3Cline x1='160' y1='110' x2='270' y2='40'/%3E%3Cline x1='160' y1='110' x2='50' y2='180'/%3E%3Cline x1='160' y1='110' x2='270' y2='180'/%3E%3C/g%3E%3Crect x='125' y='92' width='70' height='36' rx='6' fill='%232563c9'/%3E%3Ctext x='160' y='115' font-size='14' font-family='Arial' fill='white' text-anchor='middle'%3ESwitch%3C/text%3E%3Cg fill='%23e9822b'%3E%3Crect x='25' y='25' width='50' height='30' rx='4'/%3E%3Crect x='245' y='25' width='50' height='30' rx='4'/%3E%3Crect x='25' y='165' width='50' height='30' rx='4'/%3E%3Crect x='245' y='165' width='50' height='30' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+    <figcaption>Star topology: four computers connected to one switch.</figcaption>
+  </figure>
+  <h3>What each device does</h3>
+  <dl>
+    <dt>Router</dt>
+    <dd>Connects your network to other networks, such as the internet, and directs data between them.</dd>
+    <dt>Switch</dt>
+    <dd>Connects devices inside one network and sends data only to the device that needs it.</dd>
+    <dt>Access point</dt>
+    <dd>Lets wireless devices join a wired network.</dd>
+    <dt>Network cable</dt>
+    <dd>Carries data between devices. Ethernet cables use a connector called RJ45.</dd>
+  </dl>
+</section>
+
+<section id="layers">
+  <h2>How data travels: the OSI model</h2>
+  <p>The OSI model describes the journey of data in seven layers. Data starts at layer 7 on the sender's computer, moves down to layer 1, travels across the cable, then moves back up on the receiver's computer.</p>
+  <ol reversed start="7">
+    <li><strong>Application:</strong> programs such as web browsers and email</li>
+    <li><strong>Presentation:</strong> data format and encryption</li>
+    <li><strong>Session:</strong> starts, manages and ends connections</li>
+    <li><strong>Transport:</strong> splits data into pieces and checks delivery (TCP, UDP)</li>
+    <li><strong>Network:</strong> addresses and routing (IP)</li>
+    <li><strong>Data link:</strong> moves data between devices on one network (MAC addresses)</li>
+    <li><strong>Physical:</strong> cables, signals and ports</li>
+  </ol>
+</section>
+
+<section id="fix">
+  <h2>Basic troubleshooting</h2>
+  <p>When someone says "I have no internet", work from the simple to the complex.</p>
+  <h3>Steps to follow</h3>
+  <ol>
+    <li>Check that the cable is plugged in, or that Wi-Fi is switched on.</li>
+    <li>Restart the computer and check other devices on the same network.</li>
+    <li>Restart the router or switch if several devices are affected.</li>
+    <li>Run the commands in the table below to find where the problem is.</li>
+    <li>If nothing works, report it to the network administrator or internet provider.</li>
+  </ol>
+  <h3>Useful commands</h3>
+  <div class="scroll">
+    <table>
+      <caption>Command-line tools on Windows</caption>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>ipconfig</code></td><td>Shows the computer's IP address and gateway</td></tr>
+        <tr><td><code>ping 8.8.8.8</code></td><td>Tests whether you can reach another device</td></tr>
+        <tr><td><code>tracert google.com</code></td><td>Shows the path data takes to a website</td></tr>
+        <tr><td><code>nslookup google.com</code></td><td>Checks that a web name turns into an IP address</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Ping tester example</h3>
+  <p>The box below is an iframe, a small page shown inside this page. It shows what a successful ping reply looks like.</p>
+  <iframe title="Example of a successful ping result" width="100%" height="150"
+    srcdoc="<body style='font-family:monospace;background:%2315202b;color:%2390e0b0;padding:1rem;margin:0'>C:\&gt; ping 8.8.8.8<br><br>Reply from 8.8.8.8: bytes=32 time=24ms TTL=117<br>Reply from 8.8.8.8: bytes=32 time=23ms TTL=117<br>Reply from 8.8.8.8: bytes=32 time=25ms TTL=117<br><br>Replies mean the connection works.</body>"></iframe>
+  <p>To learn more, read the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content" target="_blank" rel="noopener">MDN guide on structuring content</a> or search for "CompTIA Network+ objectives" to see what IT support jobs expect.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+  <details>
+    <summary>What is an IP address?</summary>
+    <p>A number that identifies a device on a network, for example 192.168.1.10.</p>
+  </details>
+  <details>
+    <summary>What is the difference between a hub and a switch?</summary>
+    <p>A hub sends data to every device. A switch sends it only to the device that needs it, which is faster and safer.</p>
+  </details>
+  <details>
+    <summary>What is DHCP?</summary>
+    <p>A service that gives IP addresses to devices automatically when they join a network.</p>
+  </details>
+</section>
+
+<section id="quiz">
+  <h2>Quick quiz and feedback form</h2>
+  <p>Answer the question and tell us how this guide helped. The form checks that required fields are filled in.</p>
+  <form action="#quiz" method="get">
+    <fieldset>
+      <legend>Which device connects your network to the internet?</legend>
+      <label><input type="radio" name="answer" value="router" required> Router</label>
+      <label><input type="radio" name="answer" value="printer"> Printer</label>
+      <label><input type="radio" name="answer" value="monitor"> Monitor</label>
+    </fieldset>
+    <p><label for="name">Your name</label><input type="text" id="name" name="name" required></p>
+    <p><label for="email">Email</label><input type="email" id="email" name="email" required></p>
+    <p>
+      <label for="level">Your level</label>
+      <select id="level" name="level">
+        <option>Beginner</option>
+        <option>Some experience</option>
+        <option>Advanced</option>
+      </select>
+    </p>
+    <p><label for="rating">Rate this guide (1 to 5)</label><input type="number" id="rating" name="rating" min="1" max="5"></p>
+    <p><label><input type="checkbox" name="more"> I want more guides like this</label></p>
+    <p><label for="msg">Comments</label><textarea id="msg" name="comments" rows="3"></textarea></p>
+    <button type="submit">Submit</button>
+    <button type="reset" class="alt">Clear form</button>
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <p>Computer Networking Basics. A practice page built with HTML and CSS only.</p>
+  <p>&copy; 2026 Juliah N Wangari. All rights reserved.</p>
+  <p><a href="#top">Back to top</a></p>
+</footer>
+
+</body>
+</html>
